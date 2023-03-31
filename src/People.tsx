@@ -12,7 +12,7 @@ export interface Pessoa {
 function People() {
     const fetchPeople = async (): Promise<Pessoa[]> => {
         // Generate random persons using Faker
-        return new Array<Pessoa>(100)
+        return new Array<Pessoa>(1000)
             .fill({id: '', nome: '', cargo: ''})
             .map(() => ({
                     id: faker.datatype.uuid(),
@@ -43,6 +43,8 @@ function People() {
         {status === 'error' && <p>Error fetching people</p>}
         {status === 'success' && (<>
                 {people && <>
+                  <p>I generated {people.length} random persons using Faker</p>
+                  <p>Infinite scroll</p>
                   <PeopleInfiniteTable
                     people={people}
                     perPage={perPage}
