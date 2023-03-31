@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useAsync} from "./useAsync";
-import PessoasTable from "./PessoasTable";
 import {faker} from "@faker-js/faker";
-import {Pagination} from "flowbite-react";
+import PeopleInfiniteTable from "./PeopleInfiniteTable";
 
 export interface Pessoa {
     id: string,
@@ -44,21 +43,9 @@ function People() {
         {status === 'error' && <p>Error fetching people</p>}
         {status === 'success' && (<>
                 {people && <>
-                  <div className="flex flex-col items-center justify-center text-center">
-                    <p>I generated 100 random persons using Faker</p>
-                    <p>Page {page} of {totalPages}</p>
-                    <Pagination
-                      currentPage={page}
-                      layout="navigation"
-                      onPageChange={setPage}
-                      showIcons={true}
-                      totalPages={totalPages}
-                    />
-                  </div>
-                  <PessoasTable
+                  <PeopleInfiniteTable
                     people={people}
                     perPage={perPage}
-                    page={page}
                   />
 
                 </>}
