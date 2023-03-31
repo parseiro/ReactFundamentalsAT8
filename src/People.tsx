@@ -6,17 +6,19 @@ import PeopleInfiniteTable from "./PeopleInfiniteTable";
 export interface Pessoa {
     id: string,
     nome: string,
+    departamento: string,
     cargo: string
 }
 
 function People() {
     const fetchPeople = async (): Promise<Pessoa[]> => {
         // Generate random persons using Faker
-        return new Array<Pessoa>(1000)
-            .fill({id: '', nome: '', cargo: ''})
+        return new Array<Pessoa>(300)
+            .fill({id: '', nome: '', departamento: '', cargo: ''})
             .map(() => ({
                     id: faker.datatype.uuid(),
                     nome: faker.name.fullName(),
+                    departamento: faker.name.jobArea(),
                     cargo: faker.name.jobTitle()
                 })
             )

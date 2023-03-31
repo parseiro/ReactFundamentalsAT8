@@ -39,12 +39,18 @@ function PeopleInfiniteTable(props: Props) {
                         <Table.HeadCell className="text-center">
                             ID
                         </Table.HeadCell>
-                        <Table.HeadCell className="min-w-[300px]">
+                        <Table.HeadCell>
                             Name
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Area
+                        </Table.HeadCell>
+                        <Table.HeadCell>
+                            Title
                         </Table.HeadCell>
                     </Table.Head>
                     <Table.Body className="divide-y">
-                        {personsToShow?.map(({id, nome}) => (
+                        {personsToShow?.map(({id, nome, departamento, cargo}) => (
                                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800"
                                            key={id}>
                                     <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white text-center">
@@ -52,6 +58,12 @@ function PeopleInfiniteTable(props: Props) {
                                     </Table.Cell>
                                     <Table.Cell>
                                         {nome}
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        {departamento}
+                                    </Table.Cell>
+                                    <Table.Cell>
+                                        {cargo}
                                     </Table.Cell>
                                 </Table.Row>
                             ))}
